@@ -3,6 +3,8 @@
 A Python-syntactic language for Claude-executed agent programs with
 deterministic flow control.
 
+![Clawscript demo: validator rejection + bounded-retry trace](clawscript-demo.gif)
+
 Clawscript source files parse as ordinary Python 3.11+ under `ast.parse`,
 but they are executed by a dedicated interpreter that walks the AST
 node-by-node and is forbidden from reordering, skipping, or paraphrasing
