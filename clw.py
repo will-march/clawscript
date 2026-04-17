@@ -226,6 +226,8 @@ def make_prompt(client: Any, tracer: Tracer) -> Callable:
         })
         if client is None:
             tracer.emit({"event": "prompt_stub", "note": "no anthropic client; returning stub"})
+            if "json" in text.lower():
+                return '{"name": "Ada Lovelace", "role": "mathematician"}'
             return f"[stub response from {model}]"
         resp = client.messages.create(
             model=model,
